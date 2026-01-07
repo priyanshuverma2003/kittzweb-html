@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | Kirti4Arts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .detail-container {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+            padding-top: 10rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .detail-image {
+            flex: 1.5;
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .detail-image img {
+            width: 100%;
+            display: block;
+            transition: 0.5s;
+        }
+        .detail-info {
+            flex: 1;
+        }
+        .detail-info h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .detail-meta {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .detail-description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: #ddd;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        @media (max-width: 968px) {
+            .detail-container {
+                flex-direction: column;
+                padding-top: 8rem;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a id="logo" href="profile.html">Kirti4Arts</a>
+            <div class="nav-links">
+                <a href="profile.html#hero">Home</a>
+                <a href="ME.HTML">About</a>
+                <a href="profile.html#gallery" class="active">Gallery</a>
+                <a href="profile.html#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="detail-container reveal active">
+        <div class="detail-image">
+            <img src="{{IMAGE_SRC}}" alt="{{TITLE}}">
+        </div>
+        <div class="detail-info">
+            <h1>{{TITLE}}</h1>
+            <p class="detail-meta">{{MEDIUM}}</p>
+            <div class="detail-description">
+                {{DESCRIPTION}}
+            </div>
+            <div class="action-buttons">
+                <a href="profile.html#contact" class="cta-button">Inquire to Buy</a>
+                <a href="profile.html#gallery" class="secondary-btn">Back to Gallery</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kirti4Arts. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Kirti4Arts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a id="logo" href="profile.html">Kirti4Arts</a>
+            <div class="nav-links">
+                <a href="profile.html#hero">Home</a>
+                <a href="ME.HTML">About</a>
+                <a href="profile.html#gallery">Gallery</a>
+                <a href="profile.html#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search art...">
+                    <button id="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="search-results-dropdown" class="glass"></div>
+                </div>
+                <a href="cart.html" class="cart-icon active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-badge">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="cart-page" class="reveal active" style="padding-top: 10rem; min-height: 100vh;">
+        <div class="cart-container">
+            <div class="section-header">
+                <h2>Your Cart</h2>
+                <p>Review your selected artworks</p>
+            </div>
+
+            <div class="cart-content">
+                <!-- Cart Items Section -->
+                <div class="cart-items-section">
+                    <div id="cart-items-container">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+
+                    <div id="empty-cart-message" class="empty-cart glass" style="display: none;">
+                        <i class="fas fa-shopping-cart"
+                            style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Explore our curated collection and add your favorite artworks</p>
+                        <a href="profile.html#gallery" class="cta-button" style="margin-top: 1.5rem;">Browse Gallery</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary Section -->
+                <div class="cart-summary glass">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal">₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="cart-shipping">Free</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (18% GST)</span>
+                        <span id="cart-tax">₹0.00</span>
+                    </div>
+                    <hr style="border-color: var(--glass-border); margin: 1.5rem 0;">
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="cart-total">₹0.00</span>
+                    </div>
+                    <button class="cta-button" style="width: 100%; margin-top: 2rem;" id="checkout-btn">
+                        <i class="fas fa-lock"></i> Proceed to Payment
+                    </button>
+                    <a href="https://wa.me/918810426680" target="_blank" class="secondary-btn"
+                        style="width: 100%; text-align: center; margin-top: 1rem; display: block;">
+                        <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Portal Modal -->
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-modal-content glass">
+            <div class="payment-header">
+                <h2>Payment</h2>
+                <button id="close-payment" class="close-payment">&times;</button>
+            </div>
+
+            <div class="payment-body">
+                <div class="order-summary-preview">
+                    <h3>Order Summary</h3>
+                    <div class="summary-preview-row">
+                        <span>Total Amount:</span>
+                        <span id="payment-total" class="payment-amount">₹0.00</span>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Select Payment Method</h3>
+                    <div class="payment-options">
+                        <div class="payment-option" data-method="upi">
+                            <input type="radio" id="upi-payment" name="payment-method" value="upi" checked>
+                            <label for="upi-payment">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>UPI</span>
+                            </label>
+                        </div>
+                        <div class="payment-option" data-method="card">
+                            <input type="radio" id="card-payment" name="payment-method" value="card">
+                            <label for="card-payment">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Credit/Debit Card</span>
+                            </label>
+                        </div>
+                        <div class="payment-option" data-method="netbanking">
+                            <input type="radio" id="netbanking-payment" name="payment-method" value="netbanking">
+                            <label for="netbanking-payment">
+                                <i class="fas fa-university"></i>
+                                <span>Net Banking</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UPI Payment Form -->
+                <div id="upi-form" class="payment-form active">
+                    <h4>Scan & Pay</h4>
+                    <div class="qr-container">
+                        <div class="qr-placeholder">
+                            <i class="fas fa-qrcode"></i>
+                            <span>Admin QR Code</span>
+                        </div>
+                    </div>
+                    <div class="payment-info-box">
+                        <p>UPI ID:</p>
+                        <div class="copy-row">
+                            <code id="admin-upi">admin@kirti4arts</code>
+                            <button class="copy-btn" onclick="navigator.clipboard.writeText('admin@kirti4arts')">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="upi-apps">
+                        <p>Open app to pay:</p>
+                        <div class="upi-app-buttons">
+                            <a href="upi://pay?pa=admin@kirti4arts&pn=Kirti4Arts" class="upi-app-btn">
+                                <i class="fab fa-google-pay"></i> GPay
+                            </a>
+                            <a href="upi://pay?pa=admin@kirti4arts&pn=Kirti4Arts" class="upi-app-btn">
+                                <i class="fas fa-mobile-alt"></i> PhonePe
+                            </a>
+                            <a href="upi://pay?pa=admin@kirti4arts&pn=Kirti4Arts" class="upi-app-btn">
+                                <i class="fas fa-wallet"></i> Paytm
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Payment Form -->
+                <div id="card-form" class="payment-form">
+                    <h4>Card Payment Unavailable</h4>
+                    <div class="payment-info-box warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Direct card payments are currently disabled. Please use UPI or Net Banking for direct
+                            transfer.</p>
+                    </div>
+                </div>
+
+                <!-- Net Banking Form -->
+                <div id="netbanking-form" class="payment-form">
+                    <h4>Bank Transfer Details</h4>
+                    <div class="payment-info-box">
+                        <div class="bank-details-row">
+                            <span>Bank Name:</span>
+                            <strong>HDFC Bank</strong>
+                        </div>
+                        <div class="bank-details-row">
+                            <span>Account Name:</span>
+                            <strong>Kirti4Arts Admin</strong>
+                        </div>
+                        <div class="bank-details-row">
+                            <span>Account No:</span>
+                            <div class="copy-row small">
+                                <code>123456789012</code>
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('123456789012')"><i
+                                        class="far fa-copy"></i></button>
+                            </div>
+                        </div>
+                        <div class="bank-details-row">
+                            <span>IFSC Code:</span>
+                            <div class="copy-row small">
+                                <code>HDFC0001234</code>
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('HDFC0001234')"><i
+                                        class="far fa-copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-confirmation">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="payment-confirm-checkbox">
+                        <label for="payment-confirm-checkbox">I have completed the payment</label>
+                    </div>
+                </div>
+
+                <button class="cta-button" id="proceed-payment" style="width: 100%; margin-top: 1rem;" disabled>
+                    <i class="fab fa-whatsapp"></i> Send Payment Proof on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kirti4Arts. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirti4Arts | Premium Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a id="logo" href="#">Kirti4Arts</a>
+            <div class="nav-links">
+                <a href="#hero" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search art...">
+                    <button id="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="search-results-dropdown" class="glass"></div>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1>Art That Speaks</h1>
+            <p>Discover unique originals, prints, and sketches by Kirti Verma.</p>
+            <a href="#gallery" class="cta-button">View Collection</a>
+        </div>
+        <div class="hero-overlay"></div>
+    </header>
+
+    <section id="about" class="reveal">
+        <div class="section-container">
+            <div class="about-image">
+                <img src="MYPIC.jpg" alt="Kirti Verma - Artist">
+            </div>
+            <div class="about-text">
+                <h2>The Artist</h2>
+                <h3>Kirti Verma</h3>
+                <p>Welcome to my creative world. I specialize in gouache paintings, charcoal portraits, and artistic
+                    sketches that capture emotion and beauty. Every piece is a journey.</p>
+                <a href="ME.HTML" class="secondary-btn">Read Full Bio</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="reveal">
+        <div class="section-header">
+            <h2>Curated Collection</h2>
+            <p>Explore my latest works available for purchase.</p>
+        </div>
+        <div class="gallery-grid">
+            <a href="moonlit-dreams.html" class="gallery-item">
+                <img src="art1.png" alt="Moonlit Landscape">
+                <div class="item-overlay">
+                    <h3>Moonlit Dreams</h3>
+                    <p>Gouache on Canvas</p>
+                </div>
+            </a>
+            <a href="silent-gaze.html" class="gallery-item">
+                <img src="Screenshot 2026-01-06 031341.png" alt="Charcoal Portrait">
+                <div class="item-overlay">
+                    <h3>Silent Gaze</h3>
+                    <p>Charcoal Sketch</p>
+                </div>
+            </a>
+            <a href="ethereal.html" class="gallery-item">
+                <img src="WhatsApp Image 2024-02-06 at 16.23.25_75bbb31d.jpg" alt="Custom Artwork">
+                <div class="item-overlay">
+                    <h3>Ethereal</h3>
+                    <p>Mixed Media</p>
+                </div>
+            </a>
+            <a href="cosmic-dream.html" class="gallery-item">
+                <img src="Screenshot 2026-01-06 031606.png" alt="Cosmic Dream">
+                <div class="item-overlay">
+                    <h3>Cosmic Dream</h3>
+                    <p>Oil on Canvas</p>
+                </div>
+            </a>
+            <a href="moon-boy.html" class="gallery-item">
+                <img src="Screenshot 2026-01-06 030828.png" alt="Moon Boy">
+                <div class="item-overlay">
+                    <h3>Moon Boy</h3>
+                    <p>Original Print</p>
+                </div>
+            </a>
+            <a href="golden-forest.html" class="gallery-item">
+                <img src="Screenshot 2026-01-06 032057.png" alt="Golden Forest">
+                <div class="item-overlay">
+                    <h3>Golden Forest</h3>
+                    <p>Oil on Canvas</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="services" class="reveal">
+        <div class="section-container">
+            <div class="service-box glass">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Originals</h3>
+                <p>One-of-a-kind handcrafted paintings.</p>
+            </div>
+            <div class="service-box glass">
+                <i class="fas fa-print"></i>
+                <h3>Prints</h3>
+                <p>High-quality reproductions of your favorites.</p>
+            </div>
+            <div class="service-box glass">
+                <i class="fas fa-user-edit"></i>
+                <h3>Portraits</h3>
+                <p>Custom commissioned portraits from photos.</p>
+            </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>Interested in a commission or have a question?</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info glass" style="padding: 2rem; border-radius: 12px;">
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/kirti4arts" target="_blank"><i class="fab fa-instagram"></i>
+                            @kirti4arts</a>
+                        <a href="mailto:kirtiverma141@gmail.com"><i class="far fa-envelope"></i>
+                            kirtiverma141@gmail.com</a>
+                        <a href="tel:+918810426680"><i class="fas fa-phone-alt"></i> +91 8810426680</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i> New Delhi, India</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form glass" style="padding: 2rem; border-radius: 12px;">
+                <form id="contact-form-main">
+                    <div class="form-group">
+                        <input type="text" id="form-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="form-email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="form-phone" placeholder="Your Phone Number " required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="form-message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kirti4Arts. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox">
+        <span id="lightbox-close">&times;</span>
+        <img src="" alt="Zoomed Image">
+    </div>
+
+    <!-- Instagram Floating Widget -->
+    <div id="instagram-widget">
+        <div id="instagram-popup" class="glass">
+            <div class="popup-header">
+                <i class="fab fa-instagram"></i>
+                <span>Follow Kirti</span>
+                <button id="close-instagram">&times;</button>
+            </div>
+            <div class="popup-body">
+                <p>Stay updated with my latest art and sketches on Instagram!</p>
+                <a href="https://www.instagram.com/kirti4arts" target="_blank" class="instagram-btn">
+                    <i class="fab fa-instagram"></i> Follow on Instagram
+                </a>
+            </div>
+        </div>
+        <button id="instagram-fab" title="Follow on Instagram">
+            <i class="fab fa-instagram"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

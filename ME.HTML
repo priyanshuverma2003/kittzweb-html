@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Artist | Kirti4Arts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a id="logo" href="profile.html">Kirti4Arts</a>
+            <div class="nav-links">
+                <a href="profile.html#hero">Home</a>
+                <a href="ME.HTML" class="active">About</a>
+                <a href="profile.html#gallery">Gallery</a>
+                <a href="profile.html#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search art...">
+                    <button id="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="search-results-dropdown" class="glass"></div>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="about-page" class="reveal active" style="padding-top: 10rem;">
+        <div class="section-container">
+            <div class="about-image">
+                <div class="premium-image-frame">
+                    <img src="WhatsApp Image 2024-02-06 at 16.19.22_236d3fe5.jpg" alt="Kirti Verma">
+                </div>
+            </div>
+            <div class="about-text glass" style="padding: 3rem; border-radius: 15px;">
+                <h2>The Artist Behind the Brush</h2>
+                <h3 style="color: var(--secondary-text); margin-bottom: 1.5rem;">Corporate Professional & Weekend Artist
+                </h3>
+                <p>Hi, I work in a corporate during the weekdays and dedicate my heart to art on the weekends. My
+                    creative journey is fueled by a desire to find balance and express the beauty I see in the world.
+                </p>
+                <p>Painting makes me feel calm and gives me a sense of hope and harmony. I hope to portray exactly that
+                    with my artwork and make the viewer remember cherished moments or dream of beautiful places.</p>
+                <p>I specialize in creating realistic acrylic and gouache paintings that capture the essence of nature
+                    and emotion. Whether you're looking for an original piece to anchor your space or high-quality art
+                    prints to brighten your home, I invite you to explore my collection.</p>
+                <a href="profile.html#gallery" class="secondary-btn">Explore Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kirti4Arts. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>

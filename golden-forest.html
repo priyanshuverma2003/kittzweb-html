@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Forest | Kirti4Arts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .detail-container {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+            padding-top: 10rem;
+            padding-bottom: 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .detail-image {
+            flex: 1.5;
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .detail-image img {
+            width: 100%;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .detail-info {
+            flex: 1;
+        }
+
+        .detail-info h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-meta {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .detail-description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: #ddd;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .detail-container {
+                flex-direction: column;
+                padding-top: 8rem;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a id="logo" href="profile.html">Kirti4Arts</a>
+            <div class="nav-links">
+                <a href="profile.html#hero">Home</a>
+                <a href="ME.HTML">About</a>
+                <a href="profile.html#gallery" class="active">Gallery</a>
+                <a href="profile.html#contact">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search art...">
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="search-results-dropdown" class="glass"></div>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="detail-container reveal active">
+        <div class="detail-image">
+            <img src="Screenshot 2026-01-06 032057.png" alt="Golden Forest">
+        </div>
+        <div class="detail-info">
+            <h1>Golden Forest</h1>
+            <p class="detail-meta">Oil on Canvas</p>
+            <div class="detail-price"
+                style="font-size: 2rem; color: var(--primary-color); font-weight: 700; margin-bottom: 1.5rem;">₹22,000
+            </div>
+            <div class="detail-description">
+                <p>A lush and atmospheric oil painting depicting a forest bathed in golden light. This artwork uses warm
+                    tones to create a sense of comfort and natural beauty.</p>
+                <p>Captures the fleeting magic of the "golden hour" in the heart of the woods.</p>
+            </div>
+            <div class="action-buttons">
+                <button class="cta-button"
+                    onclick="cart.addItem({id: 'golden-forest', title: 'Golden Forest', medium: 'Oil on Canvas', price: 22000, image: 'Screenshot 2026-01-06 032057.png'})">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+                <a href="profile.html#gallery" class="secondary-btn">Back to Gallery</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Kirti4Arts. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+
+</html>
