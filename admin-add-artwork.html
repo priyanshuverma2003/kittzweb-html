@@ -355,21 +355,44 @@
 
 </html>`;
 
+// Send to Backend API
+fetch('/api/products', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+id,
+title,
+medium,
+price: parseInt(price),
+image,
+description
+})
+})
+.then(res => res.json())
+.then(data => {
+if (data.message) {
+console.error('Error saving to DB:', data.message);
+cart.showNotification('Generated HTML, but failed to save to DB (Check console)', 'warning');
+} else {
+cart.showNotification('Artwork saved to Database & HTML generated!', 'success');
+}
+})
+.catch(err => {
+console.warn('Backend unavailable:', err);
+cart.showNotification('Generated HTML (Backend offline)', 'info');
+});
+
 document.getElementById('generated-code').value = htmlCode;
 document.getElementById('filename-display').textContent = id + '.html';
 document.getElementById('success-message').classList.add('show');
 
 // Scroll to success message
 document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
-document.getElementById('generated-code').value = htmlCode;
-document.getElementById('filename-display').textContent = id + '.html';
-document.getElementById('success-message').classList.add('show');
 
-// Scroll to success message
-document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
-
-// Show notification
-cart.showNotification('Artwork HTML generated! Copy and save the code below.', 'success');
+// Show notification (if not already handled by fetch callbacks)
+// cart.showNotification('Artwork HTML generated! Copy and save the code below.', 'success');
 });
 
 // Auto-generate ID from title

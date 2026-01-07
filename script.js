@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearSearchBtn = document.getElementById('clear-search');
     let selectedIndex = -1;
 
-    const artworkData = [
+    // Initial hardcoded data as fallback
+    let artworkData = [
         { title: 'Moonlit Dreams', desc: 'Gouache on Canvas', link: 'moonlit-dreams.html', imgSrc: 'art1.png' },
         { title: 'Silent Gaze', desc: 'Charcoal Sketch', link: 'silent-gaze.html', imgSrc: 'Screenshot 2026-01-06 031341.png' },
         { title: 'Ethereal', desc: 'Mixed Media', link: 'ethereal.html', imgSrc: 'WhatsApp Image 2024-02-06 at 16.23.25_75bbb31d.jpg' },
@@ -31,6 +32,30 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'Moon Boy', desc: 'Original Print', link: 'moon-boy.html', imgSrc: 'Screenshot 2026-01-06 030828.png' },
         { title: 'Golden Forest', desc: 'Oil on Canvas', link: 'golden-forest.html', imgSrc: 'Screenshot 2026-01-06 032057.png' }
     ];
+
+    // Fetch artwork data from backend
+    const fetchArtworks = async () => {
+        try {
+            const response = await fetch('/api/products');
+            if (response.ok) {
+                const data = await response.json();
+                if (data && data.length > 0) {
+                    // Map database fields to frontend expected format
+                    artworkData = data.map(art => ({
+                        ...art,
+                        desc: art.medium,
+                        link: `${art.id}.html`,
+                        imgSrc: art.image
+                    }));
+                }
+            }
+        } catch (error) {
+            console.warn('Backend unavailable, using local fallback data:', error);
+        }
+    };
+
+    // Call fetch on load
+    fetchArtworks();
 
     const suggestions = ['Charcoal', 'Gouache', 'Canvas', 'Portrait', 'Dream', 'Moon'];
 
