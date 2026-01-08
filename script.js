@@ -261,39 +261,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lightbox Functionality
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox.querySelector('img');
-    const closeBtn = document.getElementById('lightbox-close');
-    const galleryImages = document.querySelectorAll('.gallery-item img');
+    if (lightbox) {
+        const lightboxImg = lightbox.querySelector('img');
+        const closeBtn = document.getElementById('lightbox-close');
+        const galleryImages = document.querySelectorAll('.gallery-item img');
 
-    galleryImages.forEach(item => {
-        item.addEventListener('click', () => {
-            const src = item.getAttribute('src');
-            lightboxImg.setAttribute('src', src);
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        galleryImages.forEach(item => {
+            item.addEventListener('click', () => {
+                const src = item.getAttribute('src');
+                lightboxImg.setAttribute('src', src);
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
         });
-    });
 
-    const closeLightbox = () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-    };
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        };
 
-    closeBtn.addEventListener('click', closeLightbox);
-
-    // Close on background click
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeLightbox);
         }
-    });
 
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
     // Instagram Popup Toggle & Dynamic Injection
     const instagramWidgetHtml = `
     <div id="instagram-widget">
