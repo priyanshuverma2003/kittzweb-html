@@ -386,6 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         navLinks.classList.toggle('active', isActive);
         menuOverlay.classList.toggle('active', isActive);
+        mobileMenuBtn.classList.toggle('active', isActive);
 
         mobileMenuBtn.innerHTML = isActive ?
             '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
@@ -398,11 +399,36 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = isActive ? 'hidden' : 'auto';
     };
 
+    // Detect current page and highlight active link
+    const highlightActivePage = () => {
+        const currentPath = window.location.pathname;
+        const currentHash = window.location.hash;
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.classList.remove('active');
+
+            // Check if link matches current page or hash
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentHash ||
+                (linkHref.startsWith('#') && currentHash === linkHref) ||
+                (currentPath.includes('profile.html') && linkHref === '#hero') ||
+                (currentPath.includes('me.html') && linkHref.includes('me.html'))) {
+                link.classList.add('active');
+            }
+        });
+    };
+
     if (mobileMenuBtn && navLinks) {
         // Initial accessibility state
         mobileMenuBtn.setAttribute('aria-expanded', 'false');
         mobileMenuBtn.setAttribute('aria-label', 'Toggle navigation menu');
         navLinks.setAttribute('aria-hidden', 'true');
+
+        // Highlight active page on load
+        highlightActivePage();
+
+        // Update active link on hash change
+        window.addEventListener('hashchange', highlightActivePage);
 
         mobileMenuBtn.addEventListener('click', () => toggleMenu());
 
