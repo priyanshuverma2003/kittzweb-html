@@ -2,6 +2,11 @@
   "name": "kittzweb-html",
   "version": "1.0.0",
   "description": "Art e-commerce website with MongoDB backend",
+  "homepage": "https://kittzweb-html-sz65.vercel.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/priyanshuverma2003/kittzweb-html.git"
+  },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
