@@ -395,8 +395,16 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuBtn.setAttribute('aria-expanded', isActive);
         navLinks.setAttribute('aria-hidden', !isActive);
 
-        // Prevent body scroll
-        document.body.style.overflow = isActive ? 'hidden' : 'auto';
+        // Manage body scroll - prevent scrolling when menu is open
+        if (isActive) {
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+        } else {
+            document.body.style.overflow = 'auto';
+            document.body.style.position = '';
+            document.body.style.width = '';
+        }
     };
 
     // Detect current page and highlight active link

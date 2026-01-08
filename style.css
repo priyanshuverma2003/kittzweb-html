@@ -39,6 +39,17 @@ a {
     transition: 0.3s;
 }
 
+/* Body scroll management for mobile menu */
+body {
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
