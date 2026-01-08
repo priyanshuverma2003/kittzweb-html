@@ -363,56 +363,56 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="cart.js"></script>
+    <script src="script.js"><\/script>
+    <script src="cart.js"><\/script>
 </body>
 
 </html>`;
 
-// Send to Backend API
-fetch('/api/products', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json'
-},
-body: JSON.stringify({
-id,
-title,
-medium,
-price: parseInt(price),
-image,
-description
-})
-})
-.then(res => res.json())
-.then(data => {
-if (data.message) {
-console.error('Error saving to DB:', data.message);
-cart.showNotification('Generated HTML, but failed to save to DB (Check console)', 'warning');
-} else {
-cart.showNotification('Artwork saved to Database & HTML generated!', 'success');
-}
-})
-.catch(err => {
-console.warn('Backend unavailable:', err);
-cart.showNotification('Generated HTML (Backend offline)', 'info');
-});
+            // Send to Backend API
+            fetch('/api/products', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    id,
+                    title,
+                    medium,
+                    price: parseInt(price),
+                    image,
+                    description
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.message) {
+                        console.error('Error saving to DB:', data.message);
+                        cart.showNotification('Generated HTML, but failed to save to DB (Check console)', 'warning');
+                    } else {
+                        cart.showNotification('Artwork saved to Database & HTML generated!', 'success');
+                    }
+                })
+                .catch(err => {
+                    console.warn('Backend unavailable:', err);
+                    cart.showNotification('Generated HTML (Backend offline)', 'info');
+                });
 
-document.getElementById('generated-code').value = htmlCode;
-document.getElementById('filename-display').textContent = id + '.html';
-document.getElementById('success-message').classList.add('show');
+            document.getElementById('generated-code').value = htmlCode;
+            document.getElementById('filename-display').textContent = id + '.html';
+            document.getElementById('success-message').classList.add('show');
 
-// Scroll to success message
-document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
-});
+            // Scroll to success message
+            document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+        });
 
-// Auto-generate ID from title
-document.getElementById('artwork-title').addEventListener('input', function (e) {
-const title = e.target.value;
-const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-document.getElementById('artwork-id').value = id;
-});
-</script>
+        // Auto-generate ID from title
+        document.getElementById('artwork-title').addEventListener('input', function (e) {
+            const title = e.target.value;
+            const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            document.getElementById('artwork-id').value = id;
+        });
+    </script>
 </body>
 
 </html>
