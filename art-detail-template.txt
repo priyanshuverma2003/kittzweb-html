@@ -67,14 +67,26 @@
     <nav id="navbar">
         <div class="nav-container">
             <a id="logo" href="profile.html">Kirti4Arts</a>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="profile.html#hero">Home</a>
-                <a href="ME.HTML">About</a>
+                <a href="me.html">About</a>
                 <a href="profile.html#gallery" class="active">Gallery</a>
                 <a href="profile.html#contact">Contact</a>
             </div>
             <div class="nav-actions">
-                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search art...">
+                    <button id="clear-search" style="display: none;"><i class="fas fa-times"></i></button>
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="search-results-dropdown" class="glass"></div>
+                </div>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+                </a>
+                <button id="mobile-menu-btn" class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
