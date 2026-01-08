@@ -119,20 +119,23 @@ a {
     position: relative;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background: var(--primary-color);
-    transition: 0.3s;
-}
+/* Desktop-only underline effect */
+@media (min-width: 969px) {
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background: var(--primary-color);
+        transition: 0.3s;
+    }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        width: 100%;
+    }
 }
 
 .nav-actions {
@@ -553,10 +556,11 @@ footer {
 
     .nav-links a {
         position: relative;
-        margin: 1.5rem 0;
-        font-size: 1.8rem;
+        margin: 1.5rem 0 !important;
+        font-size: 1.8rem !important;
         font-weight: 600;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.5px !important;
+        text-transform: none !important;
         opacity: 0;
         transform: translateX(50px) scale(0.9);
         transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
