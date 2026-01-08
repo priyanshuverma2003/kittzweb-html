@@ -79,6 +79,12 @@ app.get('/:page', (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// Export the app for Vercel
+module.exports = app;
+
+// Only listen if not running as a Vercel serverless function
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
+}
