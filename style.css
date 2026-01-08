@@ -173,6 +173,10 @@ a {
     cursor: pointer;
 }
 
+.mobile-menu-toggle {
+    display: none;
+}
+
 /* Hero Section */
 #hero {
     height: 100vh;
@@ -602,7 +606,8 @@ footer {
         color: var(--primary-color);
         font-size: 1.5rem;
         cursor: pointer;
-        z-index: 2001;
+        z-index: 2005;
+        /* Above navbar and overlay */
         transition: 0.3s;
     }
 
@@ -1662,7 +1667,8 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 2000;
+    z-index: 1500;
+    /* Below mobile menu and overlay */
 }
 
 #instagram-fab {

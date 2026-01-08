@@ -225,6 +225,13 @@
             const image = document.getElementById('artwork-image').value;
             const description = document.getElementById('artwork-description').value;
 
+            // Helper to escape strings for JS injection
+            const escapeJS = (str) => str.replace(/'/g, "\\'").replace(/\n/g, "\\n");
+
+            const eTitle = escapeJS(title);
+            const eMedium = escapeJS(medium);
+            const eDescription = escapeJS(description);
+
             const htmlCode = `<!DOCTYPE html>
 <html lang="en">
 
@@ -342,7 +349,7 @@
                 <p>${description}</p>
             </div>
             <div class="action-buttons">
-                <button class="cta-button" onclick="cart.addItem({id: '${id}', title: '${title}', medium: '${medium}', price: ${price}, image: '${image}'})">
+                <button class="cta-button" onclick="cart.addItem({id: '${id}', title: '${eTitle}', medium: '${eMedium}', price: ${price}, image: '${image}'})">
                     <i class="fas fa-shopping-cart"></i> Add to Cart
                 </button>
                 <a href="profile.html#gallery" class="secondary-btn">Back to Gallery</a>
