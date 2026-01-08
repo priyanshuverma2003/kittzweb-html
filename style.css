@@ -713,6 +713,21 @@ footer {
         transform: rotate(90deg);
     }
 
+    /* Android/Touch Optimizations */
+    .mobile-menu-toggle,
+    .nav-links a,
+    .menu-overlay {
+        -webkit-tap-highlight-color: rgba(212, 175, 55, 0.2);
+        tap-highlight-color: rgba(212, 175, 55, 0.2);
+        -webkit-touch-callout: none;
+        touch-action: manipulation;
+    }
+
+    .nav-links {
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+    }
+
     .search-box {
         width: 150px;
     }
